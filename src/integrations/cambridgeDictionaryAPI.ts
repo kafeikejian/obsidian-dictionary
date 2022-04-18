@@ -33,13 +33,6 @@ export class CambridgeDictionaryDefinitionProvider extends Base implements Defin
         if(page_info) {
             console.log("this is", page_info)
             throw "";
-        //     if(!page_info.hasChildNodes()) throw "";
-        // console.log(page_info);
-
-        // for (let index = 0; index < page_info.children.length; index++) {
-        //     const element = page_info.childNodes[index];
-        //     console.log(element.nodeName);
-        // }
         } else {
             const data = doc.querySelector(`div[class="pr di superentry"]`);
             console.log(data)
@@ -122,37 +115,6 @@ export class CambridgeDictionaryDefinitionProvider extends Base implements Defin
                 } 
             }
         }
-
-        
-
-        // //Something like noun
-        // const type = data.querySelector('.vmod i')?.textContent;
-        // if (type) {
-        //     const defGenerator = (defs: NodeList) => {
-
-        //         const out: Definition[] = [];
-        //         const syns: string[] = [];
-        //         const tmp = data.querySelectorAll('.lr_container div[role="button"] span');
-        //         tmp.forEach((el) => {
-        //             if (!el.parentElement?.getAttribute('data-topic') && el.textContent) {
-        //                 syns.push(el.textContent.trim());
-        //             }
-        //         })
-        //         defs.forEach((el, idx) => {
-        //             out.push({
-        //                 definition: el.textContent,
-        //                 example: el.nextSibling?.textContent,
-        //                 synonyms: !idx ? syns : undefined
-        //             })
-        //         })
-        //         return out;
-        //     }
-
-        //     def.meanings.push({
-        //         partOfSpeech: type,
-        //         definitions: defGenerator(data.querySelectorAll('div[data-dobid="dfn"]'))
-        //     });
-        // }
 
         return def;
     }
