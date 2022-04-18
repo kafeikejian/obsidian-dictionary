@@ -105,7 +105,7 @@ export const DEFAULT_SETTINGS: DictionarySettings = {
             synonymApiName: null,
         },
         cn: {
-            definitionApiName: 'Offline Dictionary',
+            definitionApiName: 'CambridgeDictionary',
             synonymApiName: null,
         },
     },
