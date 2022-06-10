@@ -52,12 +52,16 @@ export class CambridgeDictionaryDefinitionProvider extends Base implements Defin
                 const itemHead = entry.querySelector(`div[class="pos-header dpos-h"]`)
                 const usDpron = itemHead.querySelector(`span[class="us dpron-i "]`)
                 // 音标
-                const usDpronText = usDpron.querySelector(`span[class="pron dpron"]`).textContent
-                console.log(usDpronText)
-                def.phonetics.push({
-                    text: usDpronText,
-                    audio: "dictionary.cambridge.org"+usDpron.querySelector('amp-audio > source')?.getAttribute('src') ?? undefined
-                });
+                if(usDpron)
+                {
+                    const usDpronText = usDpron.querySelector(`span[class="pron dpron"]`)?.textContent || "没有查找到音标";
+                    console.log(usDpronText)
+                    def.phonetics.push({
+                        text: usDpronText,
+                        audio: "dictionary.cambridge.org"+usDpron.querySelector('amp-audio > source')?.getAttribute('src') ?? undefined
+                    });
+                }
+                
                 // 释义
                 const itemBody = entry.querySelector(`div[class="pos-body"]`)
                 for (let body_index = 0; body_index < itemBody.children.length; body_index++) {
